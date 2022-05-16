@@ -16,7 +16,7 @@ function inputSubmitted(event) {
   const random = Math.round(Math.random() * parsedMaxValue);
   numText.innerText = `선택한 숫자: ${parsedNumValue}, 랜덤생성된 숫자: ${random}`;
 
-  if (parsedMaxValue > parsedNumValue ) {
+  if (parsedMaxValue >= parsedNumValue ) {
     alertText.innerText = "";
     if (parsedNumValue === random) {
       checkText.innerText = "You won!";
