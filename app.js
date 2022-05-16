@@ -1,43 +1,21 @@
-const bodyColor = document.querySelector("body");
-let debounce = null;
-const classSize = ["small", "middle", "big"];
+const inputMax = document.querySelector("#inputMax");
 
-function resize() {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => {
-    let widthSize = window.innerWidth;
-    bodyColor.classList.remove(classSize[0],classSize[1], classSize[2]);
+const inputForm = document.querySelector("#inputNum");
+const inputValue = document.querySelector("#inputNum input")
 
-    if (widthSize >= 600 ) {
-      bodyColor.classList.add(classSize[2]);
-    }
-    else if (widthSize < 600 && widthSize >= 300) {
-      bodyColor.classList.add(classSize[1]);
-    }
-    if (widthSize < 300 ) {
-      bodyColor.classList.add(classSize[0]);
-    }
+function inputSubmitted(event) {
+  const random = Math.round(Math.random() * inputMax.value);
+  event.preventDefault();
+
+  const numText = document.querySelector("#submittedNum")
+  const checkText = document.querySelector("#check")
+  numText.innerText = `선택한 숫자: ${inputValue.value}, 랜덤생성된 숫자: ${random}`;
+  if (parseInt(inputValue.value) === random) {
+    checkText.innerText = "You win!";
+  } else {
+    checkText.innerText = "You lose!";
   }
-  , 100);
 }
 
-window.addEventListener("resize", resize);
+inputForm.addEventListener("submit", inputSubmitted);
 
-/*
-window.onresize = function() {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => {
-    const widthSize = window.innerWidth;
-  if (widthSize >= 600 ) {
-    console.log(widthSize);
-    bodyColor.style.backgroundColor = "gold";
-  } else if (widthSize < 600 && widthSize >= 300 ) {
-    console.log(widthSize);
-    bodyColor.style.backgroundColor = "purple";
-  } else if (widthSize < 300 ) {
-    console.log(widthSize);
-    bodyColor.style.backgroundColor = "skyblue";
-  }
-  }, 100);
-}
-*/

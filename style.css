@@ -1,12 +1,3 @@
-.big {
-    background-color: gold;
-}
-.middle {
-    background-color: purple;
-}
-.small {
-    background-color: skyblue;
-}
-.default {
-    background-color: black;
+.hidden {
+    display: none;
 }

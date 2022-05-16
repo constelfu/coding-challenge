@@ -7,7 +7,22 @@
   </head>
 
   <body>
-    <h1>Hello!</h1>
+    <h1>랜덤 넘버 게임</h1>
+    <form id="inputNum">
+      <h3>
+        숫자 생성 범위: 0에서
+        <input required id="inputMax" type="number" min="0" />
+        까지
+      </h3>
+      <h4>
+        내가 생각하는 숫자:
+        <input required type="number" min="0" />
+        <input type="submit" value="Play!" />
+      </h4>
+    </form>
+    <p id="submittedNum"></p>
+    <p id="check"></p>
+
     <script src="app.js"></script>
   </body>
 </html>
